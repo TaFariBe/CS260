@@ -1,2 +1,3 @@
 Tafari Bennett
 TAFARI.BENNETT@student.mec.cuny.edu
+https://github.com/TaFariBe/CS260.git
