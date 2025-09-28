@@ -97,7 +97,28 @@ string subtract(const string& bin1, const string& bin2) {
     return binary;
 }
 
+int main()
+{
+    cout << binaryToDecimal("1011") << endl; 
+    cout << subtract("0110", "0011") << endl; // Expect 0011
+    return 0;
+}
 
+/*  JS
+    Task 1: 2/2
+    Task 2: 2/2
+    Task 3: Empty string still returns 0.
+            1.8/2
+    Task 4: Your function does not handle non-hex characters correctly.
+            If the value variable is not assigned, it will contain an indeterminate value.
+            Thus, accessing lookup[value] leads to undefined behavior.
+            1.5/2
+    Task 5: Your function does not properly handle padding and adding the sign bit.
+            Based off your approach, the padding should happen last, after determining the sign bit.
+            The sign bit should be added the front of the string instead of replacing the first character.
+            1.0/2
+    Total:  8.3/10
+*/
 
 
 
