@@ -23,6 +23,17 @@ namespace dshw
                 }
                 return *this;
             }
+
+            LogicPair(LogicPair&& obj) noexcept : name(std::move(obj.name)), value(obj.value) {}
+            LogicPair& operator=(LogicPair&& obj) noexcept
+            {
+                if (this != &obj)
+                {
+                    name = std::move(obj.name);
+                    value = obj.value;
+                }
+                return *this;
+            }
             ~LogicPair() override {}
 
             std::string getName() const

@@ -56,6 +56,20 @@ namespace dshw
                 return *this;
             }
 
+            Inputs(Inputs&& obj) noexcept 
+            {
+                bits = std::move(obj.bits);
+            }
+
+            Inputs& operator=(Inputs&& obj) noexcept 
+            {
+                if (this != &obj)
+                {
+                    bits = std::move(obj.bits);
+                }
+                return *this;
+            }
+
             ~Inputs() override {} 
 
             const char& input(unsigned int position) const
@@ -76,7 +90,7 @@ namespace dshw
                 return bits[index];
             }
 
-            Inputs& operator++(int)
+            Inputs operator++(int)
             {
                 std::string original = bits;
                 for (int i = bits.size() - 1; i >= 0; i--)
@@ -121,7 +135,7 @@ namespace dshw
             }
 
             
-            Inputs& operator--(int)
+            Inputs operator--(int)
             {
                 std::string original = bits;
                 for (int i = bits.size() - 1; i >= 0; i--)
