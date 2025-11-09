@@ -75,3 +75,15 @@ namespace dshw {
 }
 
 #endif
+/*  JS
+Task 1: 0.5/0.5
+Task 2: 1.0/1.0
+Task 3: function does not ensure the base is 2, 8, or 16.
+        1.3/1.5
+Task 4: Function does not properly pad the string.
+        1.5/3.0
+Task 5: Function does not properly trim the string.
+        3.0/4.0
+Total: 7.3/10.0
+
+*/
