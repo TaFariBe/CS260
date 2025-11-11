@@ -20,56 +20,50 @@ namespace dshw {
     }
 
     bool validate(const string& num, int base) {
+        if (base != 2 && base != 8 && base != 16)
+            throw invalid_argument("Base must be 2, 8, or 16.");
+
         for (char c : num) {
             int val = getValue(c);
-            if (val == -1 || val >= base) {
+            if (val == -1 || val >= base)
                 return false;
-            }
         }
         return true;
     }
 
-    string pad(const string& num, int Length, int base) {
-        if (!validate(num, base)) {
+    string pad(const string& num, int length, int base) {
+        if (!validate(num, base))
             throw invalid_argument("Invalid number for given base.");
-        }
 
-        if (Length < static_cast<int>(num.length())) {
-            throw invalid_argument("must be >= current length.");
-        }
+        if (length < (int)num.size())
+            throw invalid_argument("Length must be >= current length.");
 
-          char signDigit = num.front();
+        int firstVal = getValue(num[0]);
+        char signDigit = (firstVal >= base / 2) ? Hex[base - 1] : '0';
 
-        if (static_cast<int>(num.length()) == Length)
+        if ((int)num.size() == length)
             return num;
 
-
-        string padded(Length - num.length(), signDigit);
-            padded += num;
-
+        string padded(length - num.size(), signDigit);
+        padded += num;
         return padded;
     }
 
     string trim(const string& num, int base) {
-        if (!validate(num, base)) {
+        if (!validate(num, base))
             throw invalid_argument("Invalid number.");
-        }
 
-        if (num.empty()) return num;
+        if (num.empty())
+            return num;
 
-        char signedDigit = num[0];
-        size_t firstDiff = 0;
+        int firstVal = getValue(num[0]);
+        char signDigit = (firstVal >= base / 2) ? Hex[base - 1] : '0';
 
-        while (firstDiff < num.size() - 1 && num[firstDiff] == signedDigit) {
-            int val = getValue(num[firstDiff + 1]);
-            int signVal = getValue(signedDigit);
-            if (val >= base || signVal >= base) break; 
-            if (num[firstDiff + 1] != signedDigit) break;
-            firstDiff++;
-        }
+        size_t i = 0;
+        while (i < num.size() - 1 && num[i] == signDigit && num[i + 1] == signDigit)
+            i++;
 
-        string trimmed = num.substr(firstDiff);
-        return trimmed;
+        return num.substr(i);
     }
 
 }
