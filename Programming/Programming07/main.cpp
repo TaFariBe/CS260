@@ -108,3 +108,32 @@ string toBase(int dec, int base) {
 
     return result;
 }
+
+/*  JS
+    Task 1: 2/2
+    Task 2: Your function should return a string, not an int.
+            Additionally, your should not convert the numbers to decimal to perform the addition.
+            You should be adding the numbers directly in their given base.
+            1/2
+    Task 3: 2/2
+    Task 4: Your function returns the one's complement.
+            The one variable is not being added to the one's complement to produce the two's complement.
+            The logic for your one variable is incorrect for base 2 when the input is 1.
+            When the input is 1, one should be 01 not just 1.
+            Then add one to the one's complement.
+            Additionally, your function should also check that negative powers of 2 in base 2 are properly converted.
+            Example, the two's complement of 1000 (-8) will produce 1000 (-8) again instead of 01000 (+8).
+            You should also check if the result is the same as the original number and pad with a leading zero if so.
+            0.5/1
+    Task 5: Your function should return a string, not an int.
+            Additionally, your function should not convert to decimal to perform the subtraction.
+            You should be subtracting the numbers directly in their given base.
+            0.5/1
+    Task 6: Your function needs to ensure the result of repeated division is positive before proceeding.
+            If the most significant digit of the resulting base number is greater than or equal to half the base, pad the number with a leading zero.
+            Then, if the original decimal number is negative, you should convert the resulting base number to its two's complement form.
+            1.5/2
+    Total:  7.5/10.0
+
+
+*/
